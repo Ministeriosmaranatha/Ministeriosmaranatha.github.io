@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Church Website - About</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Iglesia Paraíso International Ministries</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-
-<nav>
+<header>
+  <nav>
     <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">Sobre Nosotros</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-</nav>
+  </nav>
+</header>
 
-<div class="content">
-    <h1>About Our Church</h1>
-    <p>Our church has been a beacon of hope and faith for over a century, providing spiritual guidance and a welcoming community for all who seek it. We are committed to fostering a nurturing environment that celebrates diversity and inspires individuals to contribute positively to our community and beyond.</p>
-</div>
+<main class="about-main">
+  <section class="about-section">
+    <h2>About Iglesia Paraíso International Ministries</h2>
+    <p><!-- Introduction content goes here --></p>
+  </section>
+  
+  <section class="about-dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('history')">History <span class="arrow">&#9662;</span></button>
+    <div class="dropdown-content" id="history">
+      <!-- History content goes here -->
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <section class="about-dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('mission-vision')">Mission & Vision <span class="arrow">&#9662;</span></button>
+    <div class="dropdown-content" id="mission-vision">
+      <!-- Mission & Vision content goes here -->
+    </div>
+  </section>
 
+  <!-- Additional sections if needed -->
+</main>
+
+<footer>
+  <!-- Include your footer from index.html here -->
+</footer>
+
+<script>
+function toggleDropdown(section) {
+  var content = document.getElementById(section);
+  var arrow = content.previousElementSibling.querySelector('.arrow');
+  $('.' + section + ' .dropdown-content').not(content).slideUp('fast');
+  $(content).slideToggle('fast');
+  if(arrow.textContent === "▼") {
+    arrow.textContent = "▲";
+  } else {
+    arrow.textContent = "▼";
+  }
+}
+</script>
 </body>
 </html>

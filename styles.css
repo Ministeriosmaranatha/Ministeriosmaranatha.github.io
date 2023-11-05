@@ -1,208 +1,208 @@
+/* Reset and global styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensures padding and border are included in the total width and height of elements */
+}
+
 body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
+  margin: 0; /* Resets the default margin of the body */
+  padding: 0; /* Resets the default padding of the body */
+  width: 100%; /* Sets the body to full viewport width */
+  height: 100%; /* Sets the body to full viewport height */
+  font-family: 'Helvetica', 'Arial', sans-serif; /* Sets default font family */
 }
 
-.bg-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-}
-
-.content {
-    position: relative;
-    z-index: 1;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    max-width: 700px;
-    margin: 100px auto;
-    border-radius: 5px;
-}
-
+/* Navigation bar styles */
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #88bff3;
-    padding: 10px 0;
-    z-index: 2;
+  position: fixed; /* Keeps the nav bar fixed at the top of the viewport */
+  top: 0;
+  width: 100%; /* Ensures nav bar stretches across full width of the viewport */
+  background: #88bff33d; /* Sets the background color of the nav bar */
+  padding: 10px 0; /* Adds padding above and below the nav links */
+  z-index: 2; /* Ensures nav bar stays above other content */
 }
 
 nav ul {
-    padding: 0;
-    list-style: none;
-    text-align: center;
+  padding: 0; /* Removes default padding from the list */
+  list-style: none; /* Removes default list styling */
+  text-align: center; /* Centers the list items */
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+  display: inline; /* Displays list items in a line */
+  margin-right: 20px; /* Adds space between each nav item */
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s;
+  text-decoration: none; /* Removes underline from links */
+  color: white; /* Sets link color to white for contrast */
+  font-size: 18px; /* Sets the size of the nav link text */
+  transition: color 0.3s; /* Animates the color change when hovering */
 }
 
 nav ul li a:hover {
-    color: #aaa;
+  color: #aaa; /* Changes link color when hovered */
 }
 
-/* Reveal animation */
+/* Background video styling */
+.bg-video {
+  position: fixed; /* Fixes the video in place, even when scrolling */
+  right: 0; /* Aligns video to the right edge of the viewport */
+  bottom: 0; /* Aligns video to the bottom edge of the viewport */
+  min-width: 100%; /* Minimum width set to 100% of the viewport width */
+  min-height: 100%; /* Minimum height set to 100% of the viewport height */
+  z-index: -1; /* Positions the video behind all other content */
+}
+
+/* Main content styling */
+.content {
+  position: relative; /* Allows for z-index to be set */
+  z-index: 1; /* Ensures content appears above the video background */
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px; /* Padding inside the content box */
+  margin: 100px auto; /* Centers the content box with margin auto */
+  max-width: 700px; /* Maximum width of the content box */
+  border-radius: 5px; /* Rounded corners for the content box */
+}
+
+/* Animations and transitions */
 .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.7s ease-in-out;
+  opacity: 0; /* Start with elements invisible */
+  transform: translateY(20px); /* Start with elements 20px below their final position */
+  transition: all 0.7s ease-in-out; /* Smooth transition for all properties */
 }
 
-/* Add the rest of the existing styles from the previous CSS here */
-
-/* Additional styles for the new layout */
-.top-section {
-    width: 100%;
-    height: auto;
-    overflow: hidden; /* This will ensure the video doesn't overflow the div's bounds */
-    position: relative;
-}
-
-.section {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-}
-
-/* Target the reveal-on-load class for the initial animation */
 .reveal-on-load {
-    opacity: 0;
-    animation: fadeInUp 1s forwards;
-    animation-delay: 0.5s;
+  opacity: 0; /* Set initial opacity to 0 for the animation */
+  animation: fadeInUp 1s forwards; /* Animation to fade in and move up */
+  animation-delay: 0.5s; /* Delays animation start */
 }
 
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+  to {
+    opacity: 1; /* End state with full opacity */
+    transform: translate3d(0, 0, 0); /* End state with no translation */
+  }
 }
 
-/* Add global styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Arial', sans-serif;
+/* Responsive navigation for small screens */
+@media (max-width: 640px) {
+  .nav-menu {
+    flex-direction: column; /* Stacks nav items vertically */
+    align-items: flex-start; /* Aligns nav items to the start of the flex container */
+  }
+
+  .nav-item:not(:first-child) {
+    margin-left: 0; /* Removes left margin for stacked nav items */
+    margin-top: 15px; /* Adds top margin for space between nav items */
+  }
 }
 
-/* Style for the navigation bar */
-nav {
-    width: 100%;
-    background: #333;
-    overflow: auto;
+/* styles.css */
+
+/* Set default font, line-height for readability, base text color, background color for the body, and default margins and padding to remove browser-specific defaults */
+body {
+    font-family: 'Arial', sans-serif; /* Use Arial as the primary font */
+    line-height: 1.6; /* Sets a comfortable reading line height */
+    color: #333; /* Default text color set to a dark gray for readability */
+    background-color: #f4f4f4; /* Light gray background color for the entire page */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding to prevent content from sticking to the edges */
 }
 
-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    line-height: 60px;
+/* Style headings to differentiate them from other text and add hierarchical visual structure */
+h1, h2 {
+    color: #555; /* Darker gray color for headings to stand out from other text */
 }
 
-nav li {
-    float: left;
+/* Section containers for different content blocks with a white background, margin for spacing between sections, padding for space within the section, and a border for definition */
+section {
+    background: #fff; /* Set a white background for content sections */
+    margin-bottom: 20px; /* Add bottom margin to space out sections */
+    padding: 20px; /* Padding inside sections to prevent text from touching the borders */
+    border: 1px solid #ddd; /* Light gray border around sections for visual separation */
 }
 
-nav a {
-    width: 120px;
-    display: block;
-    text-decoration: none;
-    text-align: center;
+/* Ensure images are responsive and do not exceed the width of their containing element */
+img {
+    max-width: 100%; /* Maximum width of images is 100% of their parent element to be responsive */
+    height: auto; /* Height is auto to maintain aspect ratio */
+}
+
+/* Blockquotes styling for quotes or citations with italicized text, a left border for emphasis, and specific margin and padding */
+blockquote {
+    font-style: italic; /* Italicize text within blockquotes */
+    border-left: 4px solid #ddd; /* Solid line on the left for visual emphasis */
+    padding-left: 20px; /* Left padding to separate text from the border */
+    margin-left: 0; /* Remove default left margin */
+    color: #666; /* Lighter gray color for blockquote text */
+}
+
+/* Styling for unordered lists to remove bullets and add custom bullet points with padding and margin adjustments */
+ul {
+    list-style-type: none; /* Remove default bullets from unordered lists */
+    padding: 0; /* Remove padding */
+}
+
+ul li::before {
+    color: #555; /* Bullet point color */
+    display: inline-block; /* Necessary to align with the list item */
+    width: 1em; /* Width of the bullet point area */
+    margin-left: -1em; /* Negative margin to align bullets properly with the text */
+}
+
+/* Add more specific styles below to cater to other elements or classes specific to your website's design */
+
+/* ... Your existing styles ... */
+
+/* Styles for dropdown sections */
+.dropdown-section {
+    margin: 20px 0;
+  }
+  
+  .dropdown-toggle {
+    background-color: #007bff;
     color: white;
-    font-size: 18px;
-    transition: 0.4s ease;
-}
-
-nav a:hover {
-    background: #ddd;
-    color: #333;
-}
-
-/* Style for the background video */
-.bg-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-}
-
-/* Style for the content */
-.content {
-    position: relative;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    margin-top: 60px; /* Push down by the nav bar height */
-    text-align: center;
-}
-
-.content h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
-}
-
-/* Text underline animation */
-.content h1::after {
-    content: '';
-    position: absolute;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
     width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #333;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-}
-
-.content h1:hover::after {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
-/* Make text pop out */
-.content p {
-    font-size: 1.2rem;
-    color: #555;
-    animation: popIn 0.5s ease-out forwards;
-}
-
-/* Keyframes for text pop-in effect */
-@keyframes popIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Clear floats */
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .dropdown-toggle:after {
+    content: '\25b6';
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    transform: rotate(90deg);
+    transition: 0.4s;
+  }
+  
+  .dropdown-toggle.active:after {
+    transform: rotate(-90deg);
+  }
+  
+  .dropdown-content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    transition: max-height 0.2s ease-out;
+  }
+  
+  /* Add animation to dropdown */
+  .dropdown-content {
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+  }
+  
+  /* When content is shown, we set a max-height higher than the content's height */
+  .dropdown-content.show {
+    max-height: 500px; /* Adjust as per content size */
+  }
+  
